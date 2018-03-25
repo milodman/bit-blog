@@ -2,11 +2,11 @@ import React from 'react';
 import List from './List';
 
 
-const Main = () => {
+const Main = ({data}) => {
 
     return (
         <div className="container">
-            <List/>
+            <List data={data}/>
         </div>
     )
 

@@ -1,21 +1,47 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {PostService} from './../service/PostService'
 
-const Authors = () => {
+class Authors extends React.Component {
+
+constructor(props) {
+    super(props);
+    this.state = {
+        authors:[]
+    }
+}
+ fetchAuthors = () => {
+     PostService.fetchAuthor()
+        .then(authorObj => {
+            this.setState({
+                authors:authorObj
+            })
+        })
+ }
+
+    componentDidMount(){
+        this.fetchAuthors();
+    }
+
+
+    render(){    
+
     return(
         <div className="container">
             <div className="row">
-            <h1 className="center">Authors (5)</h1><br/>
-                <ul>
-                    <Link to="/author/:id"><li>Name Surname</li></Link><br/><hr/>
-                    <Link to="/author/:id"><li>Name Surname</li></Link><br/><hr/>
-                    <Link to="/author/:id"><li>Name Surname</li></Link><br/><hr/>
-                    <Link to="/author/:id"><li>Name Surname</li></Link><br/><hr/>
-                    <Link to="/author/:id"><li>Name Surname</li></Link><br/><hr/>
+            <h2 className="center">Authors ({this.state.authors.length})</h2><br/>
+                <ul> {this.state.authors.map(author =>{
+                    return (
+                        <Link to={`/authors/${author.id}` }><li>{author.name}</li><br/><hr/></Link>
+                    )
+                })}
+                    
+                    
                  </ul>
             </div>
         </div>
     )
 }
+}
 
-export default Authors
+export  {Authors}

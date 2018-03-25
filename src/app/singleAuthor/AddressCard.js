@@ -5,6 +5,9 @@ const AddressCard = () => {
     return (
         <div className="col s12 ">
         <div className="card horizontal">
+          <div className="card-image">
+            <img src="https://lorempixel.com/100/190/nature/6"/>
+          </div>
           <div className="card-stacked">
             <div className="card-content">
               <h2>Address</h2>
@@ -12,9 +15,6 @@ const AddressCard = () => {
               <p>city:<b>Gwenborough</b></p>
               <p>zipcode:<b>77068</b></p>
             </div>
-          <div className="card-image">
-            <img src="https://lorempixel.com/100/190/nature/6"/>
-          </div>
 
           </div>
         </div>
