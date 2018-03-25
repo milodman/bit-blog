@@ -1,16 +1,19 @@
 import React from 'react'
- const SinglePostCard = () => {
+import {Link} from 'react-router-dom'
+
+ const SinglePostCard = ({postData, dataAuthor}) => {
+   console.log(dataAuthor);
+   
      return (
         <div className="row">
         <div className="col s12">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
-              <span className="card-title center">Single Post</span>
+              <span className="card-title center">{postData.title}</span>
               <div className="card-action center ">
-              <a href="#">Author Name</a>
+              <Link to={`/author/${dataAuthor.id}`}><h6>{dataAuthor.name}</h6></Link>
             </div>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <p>{postData.body}</p>
             </div>
           </div>
         </div>
