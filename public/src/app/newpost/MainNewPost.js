@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import React from 'react'
 import Post from '../../entities/Post'
-
+import { Link, withRouter } from 'react-router-dom'
 class MainNewPost extends Component {
   constructor(props) {
     super(props)
@@ -36,7 +36,7 @@ class MainNewPost extends Component {
         'Content-Type': 'application/json'
       })
     }).then((response) => {
-      window.location.href = "/#/"
+      this.props.history.push('/')
     })
 
 
@@ -71,7 +71,7 @@ class MainNewPost extends Component {
 
               </div>
             </div>
-            <button className="btn-large right #0288d1 light-blue darken-2">Cancel</button>
+            <Link to="/"><button className="btn-large right #0288d1 light-blue darken-2">Cancel</button></Link>
             <button onClick={this.fetchNewPosts} className="btn-large right #0288d1 light-blue darken-2">Save</button>
           </form>
         </div>
@@ -81,4 +81,4 @@ class MainNewPost extends Component {
   }
 }
 
-export default MainNewPost
+export default withRouter(MainNewPost)

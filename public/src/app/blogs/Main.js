@@ -1,15 +1,30 @@
 import React from 'react';
 import List from './List';
+import { Component } from 'react'
+import { postService } from "../../service/PostService"
 
 
-const Main = ({ data }) => {
+class Main extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            posts: []
+        }
+    }
+    componentDidMount() {
+        postService.fetchPosts()
+            .then(PostList => {
+                this.setState({ posts: PostList })
+            })
+    }
 
-    return (
-        <div className="container">
-            <List data={data} />
-        </div>
-    )
-
+    render() {
+        return (
+            <div className="container" >
+                <List data={this.state.posts} />
+            </div>
+        )
+    }
 
 }
 

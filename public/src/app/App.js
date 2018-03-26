@@ -15,14 +15,7 @@ import { postService } from '../service/PostService'
 class App extends Component {
     constructor(props) {
         super(props)
-        this.state = { posts: [] }
-    }
 
-    componentDidMount() {
-        postService.fetchPosts()
-            .then(PostList => {
-                this.setState({ posts: PostList })
-            })
     }
 
     render() {
@@ -36,7 +29,7 @@ class App extends Component {
                     <Route exact path="/posts/new" component={MainNewPost} />
                     <Route path={`/posts/:id`} component={MainSinglePost} />
                     <Route path={`/author/:id`} component={MainSingleAuthor} />
-                    <Main data={this.state.posts} />
+                    <Route exact path="/" component={Main} />
                 </Switch>
                 <Footer />
             </React.Fragment>

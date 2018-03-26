@@ -9,8 +9,8 @@ class MainSinglePost extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            post: {},
-            author: {},
+            post: null,
+            author: null,
             posts: []
         }
     }
@@ -49,11 +49,18 @@ class MainSinglePost extends Component {
                 return post;
             })
     }
+
+    checkPostAndAuthorState = () => {
+        if (this.state.post && this.state.author) {
+            return <SinglePostCard data={this.state.post} data1={this.state.author} />
+        }
+    }
+
     render() {
         return (
             <div className="container">
                 <a href="">back</a>
-                <SinglePostCard data={this.state.post} data1={this.state.author} />
+                {this.checkPostAndAuthorState()}
                 <MoreSinglePosts data={this.state.posts} data1={this.state.posts} />
             </div>
         )
