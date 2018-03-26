@@ -1,5 +1,5 @@
 import React from 'react';
-import MainSingleAuthor from './MainSingleAuthor'
+
 
 const AuthorCard = ({ data }) => {
   console.log(data);

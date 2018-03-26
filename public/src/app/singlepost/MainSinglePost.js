@@ -2,7 +2,6 @@ import React from 'react'
 import { Component } from 'react'
 import SinglePostCard from './SinglePostCard'
 import MoreSinglePosts from './MoreSinglePosts'
-import { postService } from '../../service/PostService'
 import { authorPosts } from '../../service/AuthorPosts'
 import { singlePostService } from '../../service/SinglePostService'
 import { singleAuthorService } from '../../service/SingleAuthorService'
@@ -53,7 +52,7 @@ class MainSinglePost extends Component {
     render() {
         return (
             <div className="container">
-                <a href="#">back</a>
+                <a href="">back</a>
                 <SinglePostCard data={this.state.post} data1={this.state.author} />
                 <MoreSinglePosts data={this.state.posts} data1={this.state.posts} />
             </div>

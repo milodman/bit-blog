@@ -1,13 +1,13 @@
-import React from 'react';
+
 import Post from '../entities/Post'
-import Author from '../entities/Author'
+
 
 class SinglePostService {
 
 
-   
-    fetchSinglePost(id) {
-        return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+
+    fetchSinglePost = (id) => {
+        return fetch(`http://localhost:3004/posts/${id}`)
             .then((response) => {
                 return response.json();
             })
@@ -16,10 +16,10 @@ class SinglePostService {
 
             })
     }
-    
-   
 
-    
+
+
+
 }
 
 

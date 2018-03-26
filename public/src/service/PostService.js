@@ -1,12 +1,12 @@
-import React from 'react';
+
 import Post from '../entities/Post'
-import Author from '../entities/Author'
+
 
 class PostService {
 
 
-    fetchPosts() {
-        return fetch("https://jsonplaceholder.typicode.com/posts")
+    fetchPosts = () => {
+        return fetch("http://localhost:3004/posts")
             .then((response) => {
                 return response.json()
 
@@ -14,7 +14,7 @@ class PostService {
             })
             .then((data) => {
                 const postData = data
-                return postData.map((post) => {
+                return postData.reverse().map((post) => {
                     return new Post(post)
                 })
 

@@ -1,26 +1,26 @@
-import React from 'react';
-import Post from '../entities/Post'
+
+
 import Author from '../entities/Author'
 
 class AuthorsService {
 
 
-   
 
-    fetchAuthors() {
-        return fetch(`https://jsonplaceholder.typicode.com/users`)
+
+    fetchAuthors = () => {
+        return fetch(`http://localhost:3004/users`)
             .then((response) => {
-                return response.json();    
+                return response.json();
             })
             .then((data) => {
                 const authorData = data
                 return authorData.map((author) => {
                     return new Author(author)
                 })
-                })
-               
+            })
 
-            
+
+
     }
 }
 

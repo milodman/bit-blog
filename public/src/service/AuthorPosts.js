@@ -1,12 +1,12 @@
-import React from 'react';
+
 import Post from '../entities/Post'
-import Author from '../entities/Author'
+
 
 class AuthorPosts {
 
 
-    fetchUserPosts(id) {
-        return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
+    fetchUserPosts = (id) => {
+        return fetch(`http://localhost:3004/posts?userId=${id}`)
             .then((response) => {
                 return response.json()
 
@@ -21,7 +21,7 @@ class AuthorPosts {
             })
     }
 
-    
+
 }
 
 

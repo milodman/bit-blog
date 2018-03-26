@@ -1,6 +1,6 @@
 import React from 'react'
 import MoreSinglePostsList from './MoreSinglePostsList'
-import { Link } from 'react-router-dom'
+
 
 const MoreSinglePosts = ({ data }) => {
     console.log(data);

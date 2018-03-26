@@ -13,6 +13,7 @@ const SinglePostCard = ({ data, data1 }) => {
               <Link to={`/author/${data1.id}`}><h6>{data1.name}</h6></Link>
             </div>
             <p>{data.body}</p>
+            <Link to="/posts/new"><button className="right">Create new Post</button></Link>
           </div>
         </div>
       </div>

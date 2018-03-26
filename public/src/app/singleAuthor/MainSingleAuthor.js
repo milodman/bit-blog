@@ -23,7 +23,7 @@ class MainSingleAuthor extends Component {
     render() {
         return (
             <div className="container">
-                <a href="#">back</a>
+                <a href="">back</a>
                 <SingleAuthor data={this.state.author} />
             </div>
         )
