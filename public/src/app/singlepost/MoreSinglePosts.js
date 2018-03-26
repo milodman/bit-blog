@@ -1,12 +1,16 @@
 import React from 'react'
 import MoreSinglePostsList from './MoreSinglePostsList'
+import { Link } from 'react-router-dom'
 
-const MoreSinglePosts = () => {
-    return(
+const MoreSinglePosts = ({ data }) => {
+    console.log(data);
+
+    return (
         <div className="row">
-        <h2>More Posts from Same Author</h2>
-        <MoreSinglePostsList />
-        </div>
+            <h2>More Posts from Same Author</h2>
+            {data.slice(0, 3).map((post, index) => <MoreSinglePostsList key={index} data={post} />)}
+
+        </div >
     )
 }
 

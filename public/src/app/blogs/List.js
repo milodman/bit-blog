@@ -2,15 +2,11 @@ import React from 'react';
 import Item from './Item';
 
 
-const List =() => {
+const List =({data}) => {
        return (
         <div className="row">
         <h1 className="center"> POSTS </h1>
-            <Item/>
-            <Item/>
-            <Item/>
-            <Item/>
-            <Item/>
+          {data.map((post,index) =>  <Item key={index} data={post}/>)}     
         </div>
        ) 
 
