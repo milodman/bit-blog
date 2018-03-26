@@ -1,49 +1,35 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import {postService} from './../service/PostService'
+import { authorsService } from '../../service/AuthorsService'
+import { Component } from 'react'
+import AuthorsList from './AuthorsList'
 
-class Authors extends React.Component {
-
-constructor(props) {
-    super(props);
-    this.state = {
-        authors:[]
+class Authors extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            authors: [],
+        }
     }
-}
- fetchAuthors = () => {
-     postService.fetchAuthor()
-        .then(authorObj => {
-            this.setState({
-                authors:authorObj
+
+
+    componentDidMount() {
+        authorsService.fetchAuthors()
+            .then(authors => {
+                this.setState({ authors })
             })
-        })
- }
-
-    componentDidMount(){
-        this.fetchAuthors();
     }
-
-    render(){    
-
-    return(
-        <div className="container">
-            <div className="row">
-            
-            <h2 className="center">Authors ({this.state.authors.length})</h2><br/>
-                <ul> {this.state.authors.map((author) =>{
-                    console.log(author);
-                    
-                    return (
-                        <Link to={`/authors/${author.id}` } key={author.id}><li>{author.name}</li><br/><hr/></Link>
-                    )
-                })}
-                    
-                    
-                 </ul>
+    render() {
+        return (
+            <div className="container">
+                <div className="row">
+                    <h1 className="center">Authors ({this.state.authors.length})</h1><br />
+                    <ul>
+                        {this.state.authors.map((author, index) => <AuthorsList key={index} data={author} />)}
+                    </ul>
+                </div>
             </div>
-        </div>
-    )
-}
+        )
+    }
 }
 
-export  default Authors
+export default Authors

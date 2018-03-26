@@ -4,12 +4,13 @@ import AddressCard from './AddressCard';
 import CompanyCard from './CompanyCard';
 
 
-const SingleAuthor = ()=> {
+
+const SingleAuthor = ({ data }) => {
     return (
         <div className="row">
-            <AuthorCard/>
-            <AddressCard/>
-            <CompanyCard/>
+            <AuthorCard data={data} />
+            <AddressCard data={data} />
+            <CompanyCard data={data} />
         </div>
     )
 

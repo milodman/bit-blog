@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CompanyCard = () => {
+const CompanyCard = ({data}) => {
 
     return (
     <div className="col s12 ">
@@ -8,8 +8,8 @@ const CompanyCard = () => {
           <div className="card-stacked">
             <div className="card-content">
               <h2>Company</h2><br/>
-              <p>name:<b>Gwenborough</b></p><br/>
-              <p>slogan:<b>77068</b></p><br/>
+              <p>name:<b>{data.comName}</b></p><br/>
+              <p>slogan:<b>{data.catchPhrase}</b></p><br/>
             </div>
            </div>
         </div>
